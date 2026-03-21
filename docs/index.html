@@ -1,25 +1,72 @@
-<style>
-    .screenshot {
-        width: 100%;
-        max-width: 600px;
-        margin: 10px 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VueloVista — The Cockpit, Clarified.</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #0b1220;
+      color: #e8eefc;
+      line-height: 1.55;
     }
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
     }
-</style>
-<div class="container">
-    <h1>Welcome to VueloVista!</h1>
-    <p>VueloVista is your ultimate solution for...</p>
-    <h2>Features:</h2>
+    h1 { margin: 0 0 10px; font-size: 40px; letter-spacing: -0.02em; }
+    p.lede { margin: 0 0 26px; color: #b9c6e6; font-size: 18px; }
+    h2 { margin: 34px 0 12px; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em; color: #b9c6e6; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 10px 0; }
+    .shots { margin-top: 28px; display: grid; gap: 18px; }
+    .shot {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 12px;
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .footer { margin-top: 36px; color: #93a4cc; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>The Cockpit, Clarified.</h1>
+    <p class="lede">
+      VueloVista is a premier aviation mapping platform built for pilots who value speed, safety, and situational awareness.
+      Designed to work as a seamless companion from pre-flight planning to active navigation, VueloVista ensures you have the
+      data you need, exactly when you need it.
+    </p>
+
+    <h2>Key Features</h2>
     <ul>
-        <li>Feature 1</li>
-        <li>Feature 2</li>
-        <li>Feature 3</li>
+      <li><strong>Intuitive Aviation Map:</strong> Explore a responsive, interactive map featuring global airspaces, airports, and navigation aids designed for instant readability.</li>
+      <li><strong>Cockpit-Ready Offline Mode:</strong> Download and sync critical flight data before you take off, ensuring full map functionality and reliability even without an internet connection at altitude.</li>
+      <li><strong>Live Flight Intelligence:</strong> Stay informed with real-time displays of your GPS position, ground speed, altitude, and climb rate.</li>
+      <li><strong>Heads-Up Navigation:</strong> Use the "follow-me" mode to keep your aircraft centered and oriented, reducing workload during busy flight phases.</li>
+      <li><strong>Flight Path Tracking:</strong> Visualize your active flight track to maintain superior awareness of your progress and surroundings.</li>
+      <li><strong>Professional Grade Reliability:</strong> Built with a focus on stability and performance to ensure the map remains fluid and responsive during critical maneuvers.</li>
     </ul>
-    <img src="assets/screenshot-1.png" alt="Screenshot 1" class="screenshot"/>
-    <img src="assets/screenshot-2.png" alt="Screenshot 2" class="screenshot"/>
-    <img src="assets/screenshot-3.png" alt="Screenshot 3" class="screenshot"/>
-</div>
+
+    <section class="shots" aria-label="Screenshots">
+      <div class="shot"><img src="assets/screenshot-1.png" alt="VueloVista screenshot (map view)" /></div>
+      <div class="shot"><img src="assets/screenshot-2.png" alt="VueloVista screenshot (navlog view)" /></div>
+      <div class="shot"><img src="assets/screenshot-3.png" alt="VueloVista screenshot (settings view)" /></div>
+    </section>
+
+    <div class="footer">
+      Enable GitHub Pages in Settings → Pages → Deploy from branch → <code>main</code> → <code>/docs</code>.
+    </div>
+  </main>
+</body>
+</html>
