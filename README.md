@@ -1,8 +1,9 @@
-# VueloVista — The Cockpit, Clarified.
+# VueloVista
+## The Cockpit, Clarified.
 
 VueloVista is a premier aviation mapping platform built for pilots who value speed, safety, and situational awareness. Designed to work as a seamless companion from pre-flight planning to active navigation, VueloVista ensures you have the data you need, exactly when you need it.
 
-## Key Features
+### Key Features
 
 - **Intuitive Aviation Map:** Explore a responsive, interactive map featuring global airspaces, airports, and navigation aids designed for instant readability.
 - **Cockpit-Ready Offline Mode:** Download and sync critical flight data before you take off, ensuring full map functionality and reliability even without an internet connection at altitude.
@@ -11,7 +12,7 @@ VueloVista is a premier aviation mapping platform built for pilots who value spe
 - **Flight Path Tracking:** Visualize your active flight track to maintain superior awareness of your progress and surroundings.
 - **Professional Grade Reliability:** Built with a focus on stability and performance to ensure the map remains fluid and responsive during critical maneuvers.
 
-## Screenshots
+### Screenshots
 
 | | | |
 |---|---|---|
@@ -19,4 +20,4 @@ VueloVista is a premier aviation mapping platform built for pilots who value spe
 
 ---
 
-Copyright © 2026. All rights reserved.
+Copyright © 2026 VueloVista. All rights reserved.
