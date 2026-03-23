@@ -5,89 +5,197 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VueloVista | The Cockpit, Clarified.</title>
   <style>
-    :root { color-scheme: dark; }
+    :root {
+      --bg-dark: #0b1220;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --accent-blue: #3b82f6;
+      --text-main: #e8eefc;
+      --text-muted: #93a4cc;
+      --border: rgba(255, 255, 255, 0.1);
+      color-scheme: dark;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #0b1220;
-      color: #e8eefc;
-      line-height: 1.55;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
     }
-    .wrap {
-      max-width: 920px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
-    }
-    h1 { margin: 0 0 10px; font-size: 40px; letter-spacing: -0.02em; }
-    p.lede { margin: 0 0 26px; color: #b9c6e6; font-size: 18px; }
-    h2 { margin: 34px 0 12px; font-size: 18px; text-transform: uppercase; letter-spacing: 0.08em; color: #b9c6e6; }
-    ul { margin: 0; padding-left: 18px; }
-    li { margin: 10px 0; }
 
-    /* Screenshots */
-    .shots {
-      margin-top: 28px;
+    .hero {
+      position: relative;
+      padding: 100px 20px 60px;
+      text-align: center;
+      /* Background inspired by sky.jpeg in the project assets */
+      background: linear-gradient(rgba(11, 18, 32, 0.8), rgba(11, 18, 32, 1)), 
+                  url('frontend/images/sky.jpeg') center/cover;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo-img {
+      width: 80px;
+      height: auto;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(to right, #fff, #93a4cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .tagline {
+      font-size: 20px;
+      color: var(--accent-blue);
+      font-weight: 500;
+      margin: 10px 0 30px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .lede {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 19px;
+      color: var(--text-muted);
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    /* Grid layout for features based on the planned architecture */
+    .features {
       display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      align-items: start;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 80px;
     }
-    @media (max-width: 900px) {
-      .shots {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
-    @media (max-width: 600px) {
-      .shots {
-        grid-template-columns: 1fr;
-      }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-blue);
+    }
+
+    .feature-card h3 {
+      margin: 0 0 12px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .shots {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 40px;
     }
 
     .shot {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 12px;
-    }
-    .shot img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 8px;
+      overflow: hidden;
     }
 
-    .footer { margin-top: 36px; color: #93a4cc; font-size: 14px; }
+    .shot img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 60px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 40px; }
+      .shots { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
+
+  <header class="hero">
+    <img src="frontend/images/vuelo-vista-icon-1b.png" alt="VueloVista Logo" class="logo-img">
     <h1>VueloVista</h1>
-    <h3>The Cockpit, Clarified.</h3>
+    <div class="tagline">The Cockpit, Clarified.</div>
     <p class="lede">
-      VueloVista is a premier aviation mapping platform built for pilots who value speed, safety, and situational awareness.
-      Designed to work as a seamless companion from pre-flight planning to active navigation, VueloVista ensures you have the
-      data you need, exactly when you need it.
+      A high-performance aviation mapping platform designed for pilots who value speed, safety, and situational awareness.
     </p>
+  </header>
 
-    <h2>Key Features</h2>
-    <ul>
-      <li><strong>Intuitive Aviation Map:</strong> Explore a responsive, interactive map featuring global airspaces, airports, and navigation aids designed for instant readability.</li>
-      <li><strong>Cockpit-Ready Offline Mode:</strong> Download and sync critical flight data before you take off, ensuring full map functionality and reliability even without an internet connection at altitude.</li>
-      <li><strong>Live Flight Intelligence:</strong> Stay informed with real-time displays of your GPS position, ground speed, altitude, and climb rate.</li>
-      <li><strong>Heads-Up Navigation:</strong> Use the "follow-me" mode to keep your aircraft centered and oriented, reducing workload during busy flight phases.</li>
-      <li><strong>Flight Path Tracking:</strong> Visualize your active flight track to maintain superior awareness of your progress and surroundings.</li>
-      <li><strong>Professional Grade Reliability:</strong> Built with a focus on stability and performance to ensure the map remains fluid and responsive during critical maneuvers.</li>
-    </ul>
+  <main class="wrap">
+    <h2>Mission-Critical Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Intuitive Mapping</h3>
+        <p>Explore responsive, interactive maps featuring global airspaces and navigation aids.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Offline-Ready</h3>
+        <p>Download and sync critical flight data to a local SQLite database for reliability at altitude.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Live Intelligence</h3>
+        <p>Real-time displays of GPS position, ground speed, altitude, and climb rate.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Heads-Up Mode</h3>
+        <p>Keep your aircraft centered with "follow-me" navigation to reduce workload during busy phases.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Flight Tracking</h3>
+        <p>Visualize your active flight track to maintain superior awareness of your surroundings.</p>
+      </div>
+      <div class="feature-card">
+        <h3>High Performance</h3>
+        <p>Built with FastAPI and PostGIS for lightning-fast responsiveness.</p>
+      </div>
+    </div>
 
-    <section class="shots" aria-label="Screenshots">
-      <div class="shot"><img src="assets/screenshot-1.png" alt="VueloVista screenshot (map view)" /></div>
-      <div class="shot"><img src="assets/screenshot-2.png" alt="VueloVista screenshot (navlog view)" /></div>
-      <div class="shot"><img src="assets/screenshot-3.png" alt="VueloVista screenshot (settings view)" /></div>
+    <section class="shots">
+      <div class="shot"><img src="IMG_2268.jpg" alt="VueloVista Map View" /></div>
+      <div class="shot"><img src="assets/screenshot-2.png" alt="Navlog View" /></div>
+      <div class="shot"><img src="assets/screenshot-3.png" alt="Settings View" /></div>
     </section>
 
-    <div class="footer">
-      Copyright © 2026. All rights reserved.
-    </div>
+    <footer class="footer">
+      &copy; 2026 VueloVista. All rights reserved.
+    </footer>
   </main>
+
 </body>
 </html>
