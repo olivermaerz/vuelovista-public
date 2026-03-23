@@ -27,9 +27,15 @@
       position: relative;
       padding: 100px 20px 60px;
       text-align: center;
-      /* Cleaned and retyped below */
-      background: linear-gradient(rgba(11, 18, 32, 0.8), rgba(11, 18, 32, 1)), url('assets/sky.jpeg') center/cover;
       border-bottom: 1px solid var(--border);
+    
+      /* If image fails, this solid color shows */
+      background-color: #0b1220; 
+      /* Applies the gradient OVER the image */
+      background-image: linear-gradient(rgba(11, 18, 32, 0.8), rgba(11, 18, 32, 1)), url('assets/sky.jpeg');
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     .logo-img {
